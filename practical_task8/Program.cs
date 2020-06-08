@@ -152,7 +152,11 @@ namespace practical_task8
             for (int j = 0; j < matrix.GetLength(1); j++) if (matrix[point, j])
                 {
                     int pow = Pow(matrix, j);
-                    if (pow > maxPow) maxPowPoint = j;                   
+                    if (pow > maxPow) 
+                    {
+                        maxPowPoint = j;
+                        maxPow = pow;
+                    }                   
                 }
             if (maxPowPoint != -1)
             {
