@@ -158,6 +158,7 @@ namespace practical_task8
                         maxPow = pow;
                     }                   
                 }
+
             if (maxPowPoint != -1)
             {
                 Console.Write("->");
