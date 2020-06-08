@@ -131,19 +131,16 @@ namespace practical_task8
         // Передавать в функцию следует только полуэйлеров граф без петель
         public static void FindEulerPath(bool[,] matrix)
         {
-            // Начальная вершина
-            int currentPoint = -1;
-
-            // Поиск первой вершины с нечетной степенью, если такая есть
+            // Поиск первой вершины с нечетной степенью
             for (int i = 0; i < matrix.GetLength(0); i++)
             {
-                int pow = Pow(matrix, i);
-                if (pow > 0) currentPoint = i;
-                if (pow % 2 == 1) break; 
-            }
-
-            // Проход по рёбрам
-            Action(matrix, currentPoint);
+                if (Pow(matrix, i) % 2 == 1) 
+                {
+                    // Проход по рёбрам
+                    Action(matrix, i);
+                    break;
+                } 
+            } 
         }
 
         // Рекурсивная функция для прохода по всем рёбрам
