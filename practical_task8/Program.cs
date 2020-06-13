@@ -127,7 +127,6 @@ namespace practical_task8
         }
 
         // Поиск эйлерой цепи в полуэйлеровом графе
-        // Выводится минимальный лексикографический путь, если в графе 2 вершины с нечётными степенями
         // Передавать в функцию следует только полуэйлеров граф без петель
         public static void FindEulerPath(bool[,] matrix)
         {
@@ -144,27 +143,14 @@ namespace practical_task8
         }
 
         // Рекурсивная функция для прохода по всем рёбрам
-        // Вершины выводятся по порядку в консоль
         static void Action(bool[,] matrix, int point)
         {
-            Console.Write(point + 1);
-            int maxPowPoint = -1, maxPow = - 1;
             for (int j = 0; j < matrix.GetLength(1); j++) if (matrix[point, j])
                 {
-                    int pow = Pow(matrix, j);
-                    if (pow > maxPow) 
-                    {
-                        maxPowPoint = j;
-                        maxPow = pow;
-                    }                   
+                    matrix[point, j] = matrix[j, point] = false;
+                    Action(matrix, j);
                 }
-
-            if (maxPowPoint != -1)
-            {
-                Console.Write("->");
-                matrix[point, maxPowPoint] = matrix[maxPowPoint, point] = false;
-                Action(matrix, maxPowPoint);
-            }
+            Console.Write(point + 1 + " ");
         }
 
         static void Main(string[] args)
