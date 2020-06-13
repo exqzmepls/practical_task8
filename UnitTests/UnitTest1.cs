@@ -75,7 +75,7 @@ namespace UnitTests
                 result = sr.ReadLine();
             }
             // Два разых пути в одном графе
-            Assert.AreEqual("2->7->8->5->7->6->2->5->4->1->2->3", result);
+            Assert.AreEqual("3 2 7 8 5 7 6 2 5 4 1 2 ", result);
         }
 
         [TestMethod]
